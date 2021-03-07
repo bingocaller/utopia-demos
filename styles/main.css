@@ -1,0 +1,338 @@
+/* @link https://utopia.fyi/generator-mk-ii?c=320,16,1.2,1440,24,1.25,5,2, */
+:root {
+  --fluid-min-width: 320;
+  --fluid-max-width: 1440;
+  --fluid-screen: 100vw;
+  --fluid-bp: calc(
+    (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
+      (var(--fluid-max-width) - var(--fluid-min-width))
+  );
+}
+
+@media screen and (min-width: 1440px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+:root {
+  --f--2-min: 11.11;
+  --f--2-max: 15.36;
+  --step--2: calc(
+    ((var(--f--2-min) / 16) * 1rem) + (var(--f--2-max) - var(--f--2-min)) *
+      var(--fluid-bp)
+  );
+  --f--1-min: 13.33;
+  --f--1-max: 19.2;
+  --step--1: calc(
+    ((var(--f--1-min) / 16) * 1rem) + (var(--f--1-max) - var(--f--1-min)) *
+      var(--fluid-bp)
+  );
+  --f-0-min: 16;
+  --f-0-max: 24;
+  --step-0: calc(
+    ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) *
+      var(--fluid-bp)
+  );
+  --f-1-min: 19.2;
+  --f-1-max: 30;
+  --step-1: calc(
+    ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) *
+      var(--fluid-bp)
+  );
+  --f-2-min: 23.04;
+  --f-2-max: 37.5;
+  --step-2: calc(
+    ((var(--f-2-min) / 16) * 1rem) + (var(--f-2-max) - var(--f-2-min)) *
+      var(--fluid-bp)
+  );
+  --f-3-min: 27.65;
+  --f-3-max: 46.88;
+  --step-3: calc(
+    ((var(--f-3-min) / 16) * 1rem) + (var(--f-3-max) - var(--f-3-min)) *
+      var(--fluid-bp)
+  );
+  --f-4-min: 33.18;
+  --f-4-max: 58.59;
+  --step-4: calc(
+    ((var(--f-4-min) / 16) * 1rem) + (var(--f-4-max) - var(--f-4-min)) *
+      var(--fluid-bp)
+  );
+  --f-5-min: 39.81;
+  --f-5-max: 73.24;
+  --step-5: calc(
+    ((var(--f-5-min) / 16) * 1rem) + (var(--f-5-max) - var(--f-5-min)) *
+      var(--fluid-bp)
+  );
+}
+
+:root {
+  font-family: Inter, sans-serif;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding-block-end: var(--step-0);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+}
+
+h1 {
+  font-size: var(--step-5);
+}
+
+h2 {
+  font-size: var(--step-4);
+}
+
+h3 {
+  font-size: var(--step-3);
+}
+
+h4 {
+  font-size: var(--step-2);
+}
+
+h5 {
+  font-size: var(--step-1);
+}
+
+h6 {
+  font-size: var(--step-0);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--step-0);
+  padding-inline: var(--step-0);
+  margin-inline: auto;
+}
+
+.grid--fixed {
+  max-width: calc(var(--fluid-max-width) * 1px);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.column {
+  opacity: 0.0625;
+  background-color: red;
+}
+
+.grid-span {
+  grid-column: span 12;
+  overflow: auto;
+}
+
+.field-element {
+  padding: var(--step-0);
+  background-color: #efefef;
+}
+
+.grid-span--1 {
+  grid-column: span 1;
+}
+
+.grid-span--2 {
+  grid-column: span 2;
+}
+
+.grid-span--3 {
+  grid-column: span 3;
+}
+
+.grid-span--4 {
+  grid-column: span 4;
+}
+
+.grid-span--5 {
+  grid-column: span 5;
+}
+
+.grid-span--6 {
+  grid-column: span 6;
+}
+
+.grid-span--7 {
+  grid-column: span 7;
+}
+
+.grid-span--8 {
+  grid-column: span 8;
+}
+
+.grid-span--9 {
+  grid-column: span 9;
+}
+
+.grid-span--10 {
+  grid-column: span 10;
+}
+
+.grid-span--11 {
+  grid-column: span 11;
+}
+
+@media (min-width: 600px) {
+  .grid-span--small-1 {
+    grid-column: span 1;
+  }
+
+  .grid-span--small-2 {
+    grid-column: span 2;
+  }
+
+  .grid-span--small-3 {
+    grid-column: span 3;
+  }
+
+  .grid-span--small-4 {
+    grid-column: span 4;
+  }
+
+  .grid-span--small-5 {
+    grid-column: span 5;
+  }
+
+  .grid-span--small-6 {
+    grid-column: span 6;
+  }
+
+  .grid-span--small-7 {
+    grid-column: span 7;
+  }
+
+  .grid-span--small-8 {
+    grid-column: span 8;
+  }
+
+  .grid-span--small-9 {
+    grid-column: span 9;
+  }
+
+  .grid-span--small-10 {
+    grid-column: span 10;
+  }
+
+  .grid-span--small-11 {
+    grid-column: span 11;
+  }
+}
+@media (min-width: 840px) {
+  .grid-span--medium-1 {
+    grid-column: span 1;
+  }
+
+  .grid-span--medium-2 {
+    grid-column: span 2;
+  }
+
+  .grid-span--medium-3 {
+    grid-column: span 3;
+  }
+
+  .grid-span--medium-4 {
+    grid-column: span 4;
+  }
+
+  .grid-span--medium-5 {
+    grid-column: span 5;
+  }
+
+  .grid-span--medium-6 {
+    grid-column: span 6;
+  }
+
+  .grid-span--medium-7 {
+    grid-column: span 7;
+  }
+
+  .grid-span--medium-8 {
+    grid-column: span 8;
+  }
+
+  .grid-span--medium-9 {
+    grid-column: span 9;
+  }
+
+  .grid-span--medium-10 {
+    grid-column: span 10;
+  }
+
+  .grid-span--medium-11 {
+    grid-column: span 11;
+  }
+}
+@media (min-width: 1280px) {
+  .grid-span--large-1 {
+    grid-column: span 1;
+  }
+
+  .grid-span--large-2 {
+    grid-column: span 2;
+  }
+
+  .grid-span--large-3 {
+    grid-column: span 3;
+  }
+
+  .grid-span--large-4 {
+    grid-column: span 4;
+  }
+
+  .grid-span--large-5 {
+    grid-column: span 5;
+  }
+
+  .grid-span--large-6 {
+    grid-column: span 6;
+  }
+
+  .grid-span--large-7 {
+    grid-column: span 7;
+  }
+
+  .grid-span--large-8 {
+    grid-column: span 8;
+  }
+
+  .grid-span--large-9 {
+    grid-column: span 9;
+  }
+
+  .grid-span--large-10 {
+    grid-column: span 10;
+  }
+
+  .grid-span--large-11 {
+    grid-column: span 11;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
