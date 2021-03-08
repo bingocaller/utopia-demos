@@ -1,0 +1,57 @@
+$columns: 12;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat($columns, minmax(0, 1fr));
+  gap: var(--step-0);
+  padding-inline: var(--step-0);
+  margin-inline: auto;
+}
+
+.grid--fixed {
+  max-width: calc(var(--fluid-max-width) * 1px);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.column {
+  opacity: 0.125;
+  background-color: red;
+}
+
+.grid-span {
+  grid-column: span $columns;
+}
+
+// Static spans
+@for $span from 1 to $columns {
+  .grid-span--#{$span} {
+    grid-column: span $span;
+  }
+}
+// Responsive spans
+$breakpoints: (
+  "small": 600px,
+  "medium": 840px,
+  "large": 1280px,
+);
+@each $breakpoint-name, $breakpoint-size in $breakpoints {
+  @media (min-width: $breakpoint-size) {
+    @for $span from 1 to $columns {
+      .grid-span--#{$breakpoint-name}-#{$span} {
+        grid-column: span $span;
+      }
+    }
+  }
+}
+
+.field-element {
+  padding: var(--step-0);
+  background-color: hsl(0 0% 0% / 0.2);
+}

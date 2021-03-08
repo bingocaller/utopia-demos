@@ -67,23 +67,6 @@
 
 :root {
   font-family: Inter, sans-serif;
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  padding-block-end: var(--step-0);
 }
 
 h1,
@@ -93,6 +76,7 @@ h4,
 h5,
 h6 {
   margin: 0;
+  line-height: 1.1;
   font-family: Poppins, sans-serif;
 }
 
@@ -141,18 +125,12 @@ h6 {
 }
 
 .column {
-  opacity: 0.0625;
+  opacity: 0.125;
   background-color: red;
 }
 
 .grid-span {
   grid-column: span 12;
-  overflow: auto;
-}
-
-.field-element {
-  padding: var(--step-0);
-  background-color: #efefef;
 }
 
 .grid-span--1 {
@@ -333,6 +311,67 @@ h6 {
   .grid-span--large-11 {
     grid-column: span 11;
   }
+}
+.field-element {
+  padding: var(--step-0);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+:root {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding-block-end: var(--step-0);
+}
+
+header {
+  padding-block: var(--step-0) var(--step-1);
+  margin-block-end: var(--step-3);
+  background-color: #333;
+  color: #efefef;
+}
+
+label {
+  display: flex;
+  gap: 0.5em;
+}
+
+input[type=checkbox] {
+  margin: 0;
+}
+
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--step--1);
+  padding: var(--step--1) var(--step-0);
+  font-size: var(--step-0);
+  color: rgba(250, 250, 250, 0.95);
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--step--1);
 }
 
 /*# sourceMappingURL=main.css.map */

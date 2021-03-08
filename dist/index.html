@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
-    <main class="content grid grid--fixed">
-      <h1 class="grid-span">Fluid, responsive grid</h1>
-      <h2 class="grid-span">Responsive</h2>
+    <header>
+      <div class="grid">
+        <h1 class="grid-span">Fluid, responsive grid</h1>
+      </div>
+    </header>
+    <main class="content grid">
+      <h2 class="grid-span">Responsive classes</h2>
       <section
-        class="grid-span grid-span--small-8 grid-span--medium-4 grid-span--large-2"
+        class="grid-span grid-span--small-8 grid-span--medium-4 grid-span--large-3"
       >
         <div class="field-element">
-          <h3>Shrinking</h3>
+          <h3>One</h3>
           <p>
             This field element takes up fewer and fewer columns as the viewport
             gets bigger.<br />
@@ -23,15 +27,69 @@
               <li><strong>Smallest:</strong> full width (span 12)</li>
               <li><strong>Small:</strong> span 8</li>
               <li><strong>Medium:</strong> span 4</li>
-              <li><strong>Large:</strong> span 2</li>
+              <li><strong>Large:</strong> span 3</li>
             </ul>
           </p>
         </div>
       </section>
-      <h2 class="grid-span">Static</h2>
+      <section
+        class="grid-span grid-span--small-8 grid-span--medium-4 grid-span--large-3"
+      >
+        <div class="field-element">
+          <h3>Two</h3>
+          <p>
+            This field element takes up fewer and fewer columns as the viewport
+            gets bigger.<br />
+            Here are the sizes:
+            <ul>
+              <li><strong>Smallest:</strong> full width (span 12)</li>
+              <li><strong>Small:</strong> span 8</li>
+              <li><strong>Medium:</strong> span 4</li>
+              <li><strong>Large:</strong> span 3</li>
+            </ul>
+          </p>
+        </div>
+      </section>
+      <section
+        class="grid-span grid-span--small-8 grid-span--medium-4 grid-span--large-3"
+      >
+        <div class="field-element">
+          <h3>Three</h3>
+          <p>
+            This field element takes up fewer and fewer columns as the viewport
+            gets bigger.<br />
+            Here are the sizes:
+            <ul>
+              <li><strong>Smallest:</strong> full width (span 12)</li>
+              <li><strong>Small:</strong> span 8</li>
+              <li><strong>Medium:</strong> span 4</li>
+              <li><strong>Large:</strong> span 3</li>
+            </ul>
+          </p>
+        </div>
+      </section>
+      <section
+        class="grid-span grid-span--small-8 grid-span--medium-4 grid-span--large-3"
+      >
+        <div class="field-element">
+          <h3>Four</h3>
+          <p>
+            This field element takes up fewer and fewer columns as the viewport
+            gets bigger.<br />
+            Here are the sizes:
+            <ul>
+              <li><strong>Smallest:</strong> full width (span 12)</li>
+              <li><strong>Small:</strong> span 8</li>
+              <li><strong>Medium:</strong> span 4</li>
+              <li><strong>Large:</strong> span 3</li>
+            </ul>
+          </p>
+        </div>
+      </section>
+      <h2 class="grid-span">Static classes</h2>
       <section class="grid-span">
         <div class="field-element">
-          <h3>One whole</h3>
+          <h3>Full width</h3>
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             Perspiciatis eum accusamus voluptatum natus vel aut excepturi,
@@ -42,7 +100,7 @@
       </section>
       <section class="grid-span grid-span--6">
         <div class="field-element">
-          <h3>One half</h3>
+          <h3>1/2</h3>
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             Perspiciatis eum accusamus voluptatum natus vel aut excepturi,
@@ -53,7 +111,7 @@
       </section>
       <section class="grid-span grid-span--6">
         <div class="field-element">
-          <h3>One half</h3>
+          <h3>1/2</h3>
           <p>
             Hic at exercitationem repudiandae inventore ipsa fugit, numquam
             rerum voluptates, culpa repellendus nobis quod. Hic possimus
@@ -64,7 +122,7 @@
       </section>
       <section class="grid-span grid-span--4">
         <div class="field-element">
-          <h3>One third</h3>
+          <h3>1/3</h3>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus sit
             nisi mollitia ipsam accusamus vel voluptatibus, error eum explicabo
@@ -75,7 +133,7 @@
       </section>
       <section class="grid-span grid-span--4">
         <div class="field-element">
-          <h3>One third</h3>
+          <h3>1/3</h3>
           <p>
             Ad illum soluta molestiae ipsum maiores similique pariatur numquam
             magni! Delectus quia dolores est vitae enim minima, sit doloribus
@@ -86,7 +144,7 @@
       </section>
       <section class="grid-span grid-span--4">
         <div class="field-element">
-          <h3>One third</h3>
+          <h3>1/3</h3>
           <p>
             Eius, officia dolorum dicta fuga beatae dolorem quo rerum sequi vel
             incidunt quod voluptate consectetur cum repellendus possimus
@@ -97,7 +155,7 @@
       </section>
       <section class="grid-span grid-span--3">
         <div class="field-element">
-          <h3>One fourth</h3>
+          <h3>1/4</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
             illo laborum consequuntur saepe dolores sequi aliquid deleniti nisi
@@ -108,7 +166,7 @@
       </section>
       <section class="grid-span grid-span--3">
         <div class="field-element">
-          <h3>One fourth</h3>
+          <h3>1/4</h3>
           <p>
             Ipsum corporis similique voluptatum vel quo incidunt deleniti fugiat
             amet omnis modi obcaecati error minus temporibus, nisi iusto nihil
@@ -119,7 +177,7 @@
       </section>
       <section class="grid-span grid-span--3">
         <div class="field-element">
-          <h3>One fourth</h3>
+          <h3>1/4</h3>
           <p>
             Voluptates, esse! Nemo blanditiis totam nihil quasi ipsam soluta
             aspernatur quos perferendis, fugiat sequi illo aperiam iure odit
@@ -130,7 +188,7 @@
       </section>
       <section class="grid-span grid-span--3">
         <div class="field-element">
-          <h3>One fourth</h3>
+          <h3>1/4</h3>
           <p>
             Dignissimos, nesciunt. Id, cumque ipsam temporibus neque totam non.
             Eveniet, veritatis officia. Dignissimos, velit temporibus unde
@@ -141,7 +199,7 @@
       </section>
       <section class="grid-span grid-span--2">
         <div class="field-element">
-          <h3>One sixth</h3>
+          <h3>1/6</h3>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora
             fugiat, porro cumque deleniti perferendis quam. Dolores asperiores
@@ -152,7 +210,7 @@
       </section>
       <section class="grid-span grid-span--2">
         <div class="field-element">
-          <h3>One sixth</h3>
+          <h3>1/6</h3>
           <p>
             Quidem dolor sapiente saepe exercitationem, accusamus similique
             officia aliquid qui aspernatur soluta! Magni, dolor possimus. Error
@@ -163,7 +221,7 @@
       </section>
       <section class="grid-span grid-span--2">
         <div class="field-element">
-          <h3>One sixth</h3>
+          <h3>1/6</h3>
           <p>
             Magni aspernatur explicabo cum delectus eum distinctio odit nulla
             nemo sequi voluptate nesciunt consequatur ducimus odio, iure beatae
@@ -174,7 +232,7 @@
       </section>
       <section class="grid-span grid-span--2">
         <div class="field-element">
-          <h3>One sixth</h3>
+          <h3>1/6</h3>
           <p>
             Labore laudantium perspiciatis deleniti a, esse dolorem nostrum quia
             eos provident sed quod sapiente voluptates. Vero adipisci cupiditate
@@ -185,7 +243,7 @@
       </section>
       <section class="grid-span grid-span--2">
         <div class="field-element">
-          <h3>One sixth</h3>
+          <h3>1/6</h3>
           <p>
             Hic et quasi at non aut voluptate perferendis quod excepturi ducimus
             ab eaque illum alias doloremque voluptates velit, illo voluptas
@@ -196,7 +254,7 @@
       </section>
       <section class="grid-span grid-span--2">
         <div class="field-element">
-          <h3>One sixth</h3>
+          <h3>1/6</h3>
           <p>
             Laborum aliquam quisquam tempora minima repellendus omnis
             consequuntur nam, similique, iure numquam sunt repudiandae sapiente
@@ -207,7 +265,7 @@
         </div>
       </section>
     </main>
-    <div class="grid grid--fixed overlay">
+    <div class="grid overlay">
       <div class="column"></div>
       <div class="column"></div>
       <div class="column"></div>
@@ -222,4 +280,16 @@
       <div class="column"></div>
     </div>
   </body>
+  <div class="footer">
+    <div class="footer__left">
+      <label for="fixed">
+        <input type="checkbox" name="fixed" id="fixed"> Fixed grid
+      </label>
+    </div>
+    <div class="footer__right">
+      <span><strong>Gutter width:</strong> <code class="calculated-gutter"></code></span>
+      <span><strong>Viewport width:</strong> <code class="viewport-width"></code></span>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
 </html>
