@@ -1,13 +1,21 @@
 const root = document.querySelector(":root");
 const grids = document.querySelectorAll(".grid");
+const gridOverlay = document.querySelector(".grid.overlay");
+
 const calculatedGutterElement = document.querySelector(".calculated-gutter");
 const viewportWidthElement = document.querySelector(".viewport-width");
+
 const fixedToggle = document.getElementById("fixed");
+const hideGridToggle = document.getElementById("overlay");
 
 function toggleFixedGrids() {
   grids.forEach((grid) =>
     grid.classList.toggle("grid--fixed", fixedToggle.checked)
   );
+}
+
+function toggleGridOverlay() {
+  gridOverlay.style.display = hideGridToggle.checked ? "none" : "grid";
 }
 
 function observeViewport() {
@@ -30,8 +38,10 @@ function observeViewport() {
 
 function doIt() {
   toggleFixedGrids();
+  toggleGridOverlay();
 
   fixedToggle.addEventListener("change", toggleFixedGrids);
+  hideGridToggle.addEventListener("change", toggleGridOverlay);
 
   observeViewport();
 }
