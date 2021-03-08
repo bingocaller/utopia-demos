@@ -344,6 +344,10 @@ header {
   color: #efefef;
 }
 
+p {
+  line-height: 1.5;
+}
+
 label {
   display: flex;
   gap: 0.5em;

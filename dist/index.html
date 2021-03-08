@@ -13,6 +13,20 @@
       </div>
     </header>
     <main class="content grid">
+      <div class="grid-span grid-span--small-10 grid-span--medium-8 grid-span--large-6">
+        <p>
+          This demo uses a grid, which scales based on the width of the browser
+          window using "step 0" of a fluid typography scale generated with
+          <a href="https://utopia.fyi">Utopia</a>.
+        </p>
+        <p>
+          The gutter width scales from 16px at the smallest screen size of 320px
+          to 24px at the largest screen size of 1440px. It does this fluidly
+          without any media queries by interpolating the value of step 0 based on
+          the viewport width. You can see the current width of the gutter and the
+          viewport in the footer and the columns are overlaid in transparent red.
+        </p>
+      </div>
       <h2 class="grid-span">Responsive classes</h2>
       <section
         class="grid-span grid-span--small-8 grid-span--medium-4 grid-span--large-3"
