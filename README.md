@@ -1,10 +1,15 @@
-# utopia-grid
-A fluid, responsive grid based on a typographic scale generated with Utopia
+# utopia-demos
+A couple of demos showing Utopia in practice.  
+There's currently only one demo available: fluid, responsive grid
 
-To generate CSS, run
+Start in watch mode run
 
 ```shell
-sass -c --watch styles/main.scss dist/styles/main.css
+npm start
 ```
 
-You need to [have the Sass CLI installed](https://sass-lang.com/install) for this to work.
+To build run
+
+```shell
+npm run build
+```
