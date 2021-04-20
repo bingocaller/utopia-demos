@@ -1,2 +1,7 @@
+node_modules
+
+src/css
+dist
+
 # Local Netlify folder
 .netlify
