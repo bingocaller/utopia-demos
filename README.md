@@ -2,7 +2,7 @@
 A couple of demos showing Utopia in practice.  
 There's currently only one demo available: fluid, responsive grid
 
-Start in watch mode run
+Start in watch mode by running
 
 ```shell
 npm start
