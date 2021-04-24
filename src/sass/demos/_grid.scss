@@ -1,0 +1,77 @@
+@use '../spacing';
+
+$columns: 12;
+
+.grid-demo {
+  // Responsive spans
+  $breakpoints: (
+    'small': 600px,
+    'medium': 840px,
+    'large': 1280px,
+  );
+
+  .grid {
+    display: grid;
+    gap: var(--space-s);
+    grid-template-columns: repeat($columns, minmax(0, 1fr));
+    margin-inline: auto;
+  }
+
+  .grid--fixed {
+    max-width: calc(var(--fluid-max-width) * 1px);
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-inline: var(--space-s);
+    pointer-events: none;
+  }
+
+  .column {
+    background-color: #f00;
+    opacity: 0.125;
+  }
+
+  .grid-span {
+    grid-column: span $columns;
+  }
+
+  .field-element {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-s);
+    background-color: hsl(0 0% 0% / 0.2);
+    gap: var(--space-s);
+
+    > * {
+      margin: 0;
+    }
+  }
+
+  // Static spans
+  @for $span from 1 to $columns {
+    .grid-span--#{$span} {
+      grid-column: span $span;
+    }
+  }
+  @each $breakpoint-name, $breakpoint-size in $breakpoints {
+    @media (min-width: $breakpoint-size) {
+      @for $span from 1 to $columns {
+        .grid-span--#{$breakpoint-name}-#{$span} {
+          grid-column: span $span;
+        }
+      }
+    }
+  }
+
+  footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}

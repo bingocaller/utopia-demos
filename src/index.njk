@@ -4,18 +4,14 @@ layout: "base.njk"
 ---
 
 <header>
-  <div class="grid">
-    <h1 class="grid-span">{{ renderData.title or title or metadata.title }}</h1>
-  </div>
+    <h1>{{ renderData.title or title or metadata.title }}</h1>
 </header>
-<main class="content grid">
-  <div class="grid-span">
+<main>
     <p>A couple of demos showing Utopia in practice.</p>
 
     <ul>
-    {% for demo in collections.demos %}
-      <li><a href="{{ demo.url }}">{{ demo.data.title }}</a></li>
-    {% endfor %}
+        {% for demo in collections.demos %}
+            <li><a href="{{ demo.url }}">{{ demo.data.title }}</a></li>
+        {% endfor %}
     </ul>
-  </div>
 </main>

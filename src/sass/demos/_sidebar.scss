@@ -1,0 +1,53 @@
+@use '../utils';
+
+.sidebar-demo {
+  display: grid;
+  min-height: 100vh;
+  grid-template-areas:
+    'header header'
+    'sidebar content'
+    'sidebar footer';
+  grid-template-columns: clamp(10em, 25vw, 80ch) auto;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+
+  header {
+    grid-area: header;
+  }
+
+  aside {
+    background-color: #efefef;
+    border-inline-end: 1px solid #999;
+    grid-area: sidebar;
+
+    ul {
+      display: flex;
+      min-height: 100%;
+      flex-flow: column nowrap;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+
+    li {
+      @include utils.spacer-visualiser(var(--space-s), #00f, 'Space S');
+
+      position: relative;
+      display: flex;
+      flex: 1;
+      align-items: center;
+      padding: var(--space-s);
+    }
+
+    li + li {
+      border-block-start: 1px solid #999;
+    }
+  }
+
+  main {
+    grid-area: content;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+}

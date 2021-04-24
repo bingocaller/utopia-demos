@@ -1,5 +1,6 @@
 ---
-title: Fluid, responsive grid
+title: 'Fluid, responsive grid'
+demoName: 'grid-demo'
 ---
 
 {% set twelve = range(1, 13) %}
@@ -13,85 +14,87 @@ title: Fluid, responsive grid
 ]%}
 
 <header>
-  <div class="grid">
-    <h1 class="grid-span">{{ renderData.title or title or metadata.title }}</h1>
-  </div>
+    <div class="grid">
+        <h1 class="grid-span">{{ renderData.title or title or metadata.title }}</h1>
+    </div>
 </header>
 <main class="content grid">
-  <div class="grid-span grid-span--small-10 grid-span--medium-8 grid-span--large-6">
-    <p>
-    This demo uses a grid, which scales based on the width of the browser
-    window, using "step 0" of a fluid typography scale generated with
-    <a href="https://utopia.fyi">Utopia</a>.
-    </p>
-    <p>
-    The gutter width scales from 16px at the smallest screen size of 320px
-    to 24px at the largest screen size of 1440px. It does this fluidly
-    without any media queries by interpolating the value of step 0 based on
-    the viewport width. You can see the current width of the gutter and the
-    viewport in the footer and the columns are overlaid in transparent red.
-    </p>
-  </div>
-  <h2 class="grid-span">Responsive classes</h2>
-  {% for number in responsive %}
-  <section
-      class="grid-span grid-span--small-8 grid-span--medium-4 grid-span--large-3"
-      >
-      <div class="field-element">
-        <h3>{{ number }}</h3>
+    <div class="grid-span grid-span--small-10 grid-span--medium-8 grid-span--large-6">
         <p>
-        This field element takes up fewer and fewer columns as the viewport
-        gets bigger.<br />
-        Here are the sizes:
-        <ul>
-          <li><strong>Smallest:</strong> full width (span 12)</li>
-          <li><strong>Small:</strong> span 8</li>
-          <li><strong>Medium:</strong> span 4</li>
-          <li><strong>Large:</strong> span 3</li>
-        </ul>
+        This demo uses a grid, which scales based on the width of the browser
+        window, using
+        <a href="https://utopia.fyi/space/calculator?c=320,16,1.125,1140,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l">
+            fluid spacing values generated with Utopia
+        </a>.
         </p>
-      </div>
-  </section>
-  {% endfor %}
-  <h2 class="grid-span">Static classes</h2>
-  {% for row in static %}
-    {% set numOfColumns = row | length %}
-    {% for column in row %}
-      {% if numOfColumns === 1 %}
-      <section class="grid-span">
-      {% else %}
-      <section class="grid-span grid-span--{{12 / numOfColumns}}">
-      {% endif %}
-        <div class="field-element">
-          <h3>{{ column }}</h3>
-          <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          Perspiciatis eum accusamus voluptatum natus vel aut excepturi,
-          recusandae voluptates dolorum odit quas dicta ad quasi aliquam
-          laudantium sunt cumque, ipsum totam.
-          </p>
-        </div>
-      </section>
+        <p>
+        The gutter width scales from 16px at the smallest screen size of 320px
+        to 20px at the largest screen size of 1440px. It does this fluidly
+        without any media queries by interpolating its value based on
+        the viewport width. You can see the current width of the gutter and the
+        viewport in the footer and the columns are overlaid in transparent red.
+        </p>
+    </div>
+    <h2 class="grid-span">Responsive classes</h2>
+    {% for number in responsive %}
+        <section
+                class="grid-span grid-span--small-8 grid-span--medium-4 grid-span--large-3"
+                >
+                <div class="field-element">
+                    <h3>{{ number }}</h3>
+                    <p>
+                    This field element takes up fewer and fewer columns as the viewport
+                    gets bigger.<br />
+                    Here are the sizes:
+                    <ul>
+                        <li><strong>Smallest:</strong> full width (span 12)</li>
+                        <li><strong>Small:</strong> span 8</li>
+                        <li><strong>Medium:</strong> span 4</li>
+                        <li><strong>Large:</strong> span 3</li>
+                    </ul>
+                    </p>
+                </div>
+        </section>
     {% endfor %}
-  {% endfor %}
+    <h2 class="grid-span">Static classes</h2>
+    {% for row in static %}
+        {% set numOfColumns = row | length %}
+        {% for column in row %}
+            {% if numOfColumns === 1 %}
+            <section class="grid-span">
+            {% else %}
+            <section class="grid-span grid-span--{{12 / numOfColumns}}">
+            {% endif %}
+                <div class="field-element">
+                <h3>{{ column }}</h3>
+                <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Perspiciatis eum accusamus voluptatum natus vel aut excepturi,
+                recusandae voluptates dolorum odit quas dicta ad quasi aliquam
+                laudantium sunt cumque, ipsum totam.
+                </p>
+                </div>
+            </section>
+        {% endfor %}
+    {% endfor %}
 </main>
 <div class="grid overlay">
-  {% for column in twelve %}
-  <div class="column"></div>
-  {% endfor %}
+    {% for column in twelve %}
+        <div class="column"></div>
+    {% endfor %}
 </div>
 <div class="footer">
-  <div class="footer__left">
-    <label for="fixed">
-      <input type="checkbox" name="fixed" id="fixed"> Fixed grid
-    </label>
-    <label for="overlay">
-      <input type="checkbox" name="overlay" id="overlay"> Hide grid
-    </label>
-  </div>
-  <div class="footer__right">
-    <span><strong>Gutter width:</strong> <code class="calculated-gutter"></code></span>
-    <span><strong>Viewport width:</strong> <code class="viewport-width"></code></span>
-  </div>
+    <div class="footer__left">
+        <label for="fixed">
+            <input type="checkbox" name="fixed" id="fixed"> Fixed grid
+        </label>
+        <label for="overlay">
+            <input type="checkbox" name="overlay" id="overlay"> Hide grid
+        </label>
+    </div>
+    <div class="footer__right">
+        <span><strong>Gutter width:</strong> <code class="calculated-gutter"></code></span>
+        <span><strong>Viewport width:</strong> <code class="viewport-width"></code></span>
+    </div>
 </div>
 <script src="{{ '/js/main.js' | url }}"></script>
