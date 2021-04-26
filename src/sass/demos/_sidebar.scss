@@ -29,13 +29,10 @@
     }
 
     li {
-      @include utils.spacer-visualiser(var(--space-s), #00f, 'Space S');
-
       position: relative;
       display: flex;
       flex: 1;
       align-items: center;
-      padding: var(--space-s);
     }
 
     li + li {
