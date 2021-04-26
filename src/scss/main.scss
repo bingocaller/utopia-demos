@@ -2,6 +2,10 @@
 @use 'reset';
 @use 'elements';
 
+// Utilities + CSS variables
+@use 'utilities/spacing';
+@use 'utilities/typography';
+
 // Demos
 @use 'demos/grid';
 @use 'demos/sidebar';

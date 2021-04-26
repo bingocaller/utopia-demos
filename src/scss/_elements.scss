@@ -1,14 +1,8 @@
-@use 'typography';
-@use 'spacing';
+@use 'utilities/spacing';
 
 header {
-  padding: var(--space-s) var(--space-s) var(--space-m);
   background-color: #333;
   color: #efefef;
-}
-
-main {
-  padding: var(--space-s);
 }
 
 p {
@@ -16,8 +10,12 @@ p {
   line-height: 1.5;
 
   + p {
-    margin-block-start: var(--space-s);
+    @extend .u-margin-block-start--s;
   }
+}
+
+li + li {
+  @extend .u-margin-block-start--xs;
 }
 
 label {
@@ -33,7 +31,6 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: var(--space-m) var(--space-s);
   background-color: hsl(0 0% 0% / 0.75);
   color: hsl(0 0% 98% / 0.95);
   font-size: var(--step-0);

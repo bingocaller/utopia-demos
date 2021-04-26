@@ -13,7 +13,7 @@ demoName: 'grid-demo'
   ['1/6','1/6','1/6','1/6','1/6','1/6']
 ]%}
 
-<header>
+<header class="u-padding--s">
     <div class="grid">
         <h1 class="grid-span">{{ renderData.title or title or metadata.title }}</h1>
     </div>
@@ -40,7 +40,7 @@ demoName: 'grid-demo'
         <section
                 class="grid-span grid-span--small-8 grid-span--medium-4 grid-span--large-3"
                 >
-                <div class="field-element">
+                <div class="field-element u-padding--s">
                     <h3>{{ number }}</h3>
                     <p>
                     This field element takes up fewer and fewer columns as the viewport
@@ -65,7 +65,7 @@ demoName: 'grid-demo'
             {% else %}
             <section class="grid-span grid-span--{{12 / numOfColumns}}">
             {% endif %}
-                <div class="field-element">
+                <div class="field-element u-padding--s">
                 <h3>{{ column }}</h3>
                 <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -78,12 +78,12 @@ demoName: 'grid-demo'
         {% endfor %}
     {% endfor %}
 </main>
-<div class="grid overlay">
+<div class="grid overlay u-padding-inline--s">
     {% for column in twelve %}
         <div class="column"></div>
     {% endfor %}
 </div>
-<div class="footer">
+<div class="footer u-padding-block--m u-padding-inline-s">
     <div class="footer__left">
         <label for="fixed">
             <input type="checkbox" name="fixed" id="fixed"> Fixed grid

@@ -3,15 +3,27 @@ title: "Utopia demos"
 layout: "base.njk"
 ---
 
-<header>
+<header class="u-padding--s">
     <h1>{{ renderData.title or title or metadata.title }}</h1>
 </header>
-<main>
-    <p>A couple of demos showing Utopia in practice.</p>
+<main class="u-padding--m">
+    <p>
+        This project has utility classes for all spacing sizes from 2XS to 2XL.
+        They add the spacing while also showing a visual representation of the
+        spacing to help see how the spacing changes across viewport sizes.
+    </p>
+    <p>
+        There are also styles for typography. Whenever a Utopia font size
+        (step) is used, the name is appended to the text that uses it, again,
+        to help visualisation.
+    </p>
+    <p>
+        The demos listed below show various things you can do with Utopia.
+    </p>
 
     <ul>
         {% for demo in collections.demos %}
-            <li><a href="{{ demo.url }}">{{ demo.data.title }}</a></li>
+        <li><a href="{{ demo.url }}">{{ demo.data.title }}</a></li>
         {% endfor %}
     </ul>
 </main>

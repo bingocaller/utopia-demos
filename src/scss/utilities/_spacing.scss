@@ -52,3 +52,85 @@
   /* Custom pairs */
   --space-s-l: calc(((var(--fc-s-min) / 16) * 1rem) + (var(--fc-l-max) - var(--fc-s-min)) * var(--fluid-bp));
 }
+
+$sizes: (
+  ('2xs', #f00),
+  ('xs', #f80),
+  ('s', #ff0),
+  ('m', #0f0),
+  ('l', #00f),
+  ('xl', #80f),
+  ('2xl', #f0f),
+);
+
+$types: (
+  'margin',
+  'padding',
+);
+
+$directions: (
+  'block',
+  'block-start',
+  'block-end',
+  'inline',
+  'inline-start',
+  'inline-end',
+);
+
+@mixin spacer-visualiser($size, $color, $type, $direction: null) {
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    inset: 0;
+  }
+
+  &::before {
+    border-width: 0;
+    border-style: solid;
+    border-color: #{$color}3;
+    content: '';
+
+    @if $type == 'margin' {
+      // Move visualiser border outside element
+      inset-#{$direction}: calc(-1 * var(--space-#{$size}));
+    }
+    @if $direction {
+      border-#{$direction}-width: var(--space-#{$size});
+    } @else {
+      border-width: var(--space-#{$size});
+    }
+  }
+
+  &::after {
+    color: inherit;
+    font-size: var(--step--2);
+    opacity: 0.5;
+    @if $direction {
+      content: '#{$type}-#{$direction}: #{to-upper-case($size)}';
+    } @else {
+      content: '#{$type}: #{to-upper-case($size)}';
+    }
+
+    @if $type == 'margin' {
+      // Move visualiser border outside element
+      inset-#{$direction}: calc(-1 * var(--space-#{$size}));
+    }
+  }
+}
+
+@each $size, $color in $sizes {
+  @each $type in $types {
+    .u-#{$type}--#{$size} {
+      @include spacer-visualiser($size, $color, $type);
+      #{$type}: var(--space-#{$size});
+    }
+    @each $direction in $directions {
+      .u-#{$type}-#{$direction}--#{$size} {
+        @include spacer-visualiser($size, $color, $type, $direction);
+        #{$type}-#{$direction}: var(--space-#{$size});
+      }
+    }
+  }
+}

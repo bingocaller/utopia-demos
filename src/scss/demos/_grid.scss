@@ -1,15 +1,12 @@
-@use '../spacing';
-
 $columns: 12;
 
-.grid-demo {
-  // Responsive spans
-  $breakpoints: (
-    'small': 600px,
-    'medium': 840px,
-    'large': 1280px,
-  );
+$breakpoints: (
+  'small': 600px,
+  'medium': 840px,
+  'large': 1280px,
+);
 
+.grid-demo {
   .grid {
     display: grid;
     gap: var(--space-s);
@@ -27,7 +24,6 @@ $columns: 12;
     right: 0;
     bottom: 0;
     left: 0;
-    padding-inline: var(--space-s);
     pointer-events: none;
   }
 
@@ -43,7 +39,6 @@ $columns: 12;
   .field-element {
     display: flex;
     flex-direction: column;
-    padding: var(--space-s);
     background-color: hsl(0 0% 0% / 0.2);
     gap: var(--space-s);
 
@@ -52,12 +47,19 @@ $columns: 12;
     }
   }
 
+  footer {
+    position: fixed;
+    inset-block-end: 0;
+    inset-inline: 0;
+  }
+
   // Static spans
   @for $span from 1 to $columns {
     .grid-span--#{$span} {
       grid-column: span $span;
     }
   }
+  // Responsive spans
   @each $breakpoint-name, $breakpoint-size in $breakpoints {
     @media (min-width: $breakpoint-size) {
       @for $span from 1 to $columns {
@@ -66,12 +68,5 @@ $columns: 12;
         }
       }
     }
-  }
-
-  footer {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
   }
 }
