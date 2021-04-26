@@ -3,8 +3,8 @@
   "version": "0.2.0",
   "description": "A couple of demos showing how Utopia works.",
   "scripts": {
-    "styles:watch": "sass --watch src/sass:src/css",
-    "styles:build": "sass src/sass:src/css",
+    "styles:watch": "sass --watch src/scss:src/css",
+    "styles:build": "sass src/scss:src/css",
     "eleventy:build": "eleventy",
     "eleventy:watch": "eleventy --serve",
     "start": "npm-run-all styles:build --parallel *:watch",
