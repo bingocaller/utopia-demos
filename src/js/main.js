@@ -1,53 +1,17 @@
-const root = document.querySelector(":root");
-const grids = document.querySelectorAll(".grid");
-const gridOverlay = document.querySelector(".grid.overlay");
+(() => {
+  const elementsThatNeedStepLabels = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li, small, [class^=u-font-size--step-]');
+  elementsThatNeedStepLabels.forEach(element => { 
+    const stepLabel = document.createElement('span');
+    stepLabel.classList.add('step-label');
+    element.appendChild(stepLabel);
+  });
 
-const calculatedGutterElement = document.querySelector(".calculated-gutter");
-const viewportWidthElement = document.querySelector(".viewport-width");
-
-const fixedToggle = document.getElementById("fixed");
-const hideGridToggle = document.getElementById("overlay");
-
-function toggleFixedGrids() {
-  grids.forEach((grid) =>
-    grid.classList.toggle("grid--fixed", fixedToggle.checked)
-  );
-}
-
-function toggleGridOverlay() {
-  gridOverlay.style.display = hideGridToggle.checked ? "none" : "grid";
-}
-
-function observeViewport() {
-  // Feature detect ResizeObserver
-  if ("ResizeObserver" in window) {
-    const grid = document.querySelector("main.grid");
-    const ro = new ResizeObserver(() => {
-      const gutterWidth = Number.parseFloat(
-        window.getComputedStyle(grid).paddingInlineStart
-      ).toFixed(3);
-      window.requestAnimationFrame(() => {
-        calculatedGutterElement.textContent = gutterWidth + "px";
-        viewportWidthElement.textContent = window.innerWidth + "px";
-      });
-    });
-
-    ro.observe(root);
-  }
-}
-
-function doIt() {
-  toggleFixedGrids();
-  toggleGridOverlay();
-
-  fixedToggle.addEventListener("change", toggleFixedGrids);
-  hideGridToggle.addEventListener("change", toggleGridOverlay);
-
-  observeViewport();
-}
-
-if (document.readyState != "loading") {
-  doIt();
-} else {
-  document.addEventListener("DOMContentLoaded", doIt);
-}
+  document.addEventListener('keyup', (e) => {
+    if (e.key === 'v') {
+      document.body.classList.toggle('hide-visualisers');
+    }
+    if (e.key === 's') {
+      document.body.classList.toggle('hide-step-labels');
+    }
+  })
+})();

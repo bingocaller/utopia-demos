@@ -124,18 +124,31 @@ $directions: (
       inset-#{$direction}: calc(-1 * var(--space-#{$size}));
     }
   }
+
+  .hide-visualisers & {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
 }
 
 @each $size, $color in $sizes {
   @each $type in $types {
-    .u-#{$type}--#{$size} {
+    %u-#{$type}--#{$size} {
       @include spacer-visualiser($size, $color, $type);
-      #{$type}: var(--space-#{$size});
+      #{$type}: var(--space-#{$size}) !important;
+    }
+    .u-#{$type}--#{$size} {
+      @extend %u-#{$type}--#{$size};
     }
     @each $direction in $directions {
-      .u-#{$type}-#{$direction}--#{$size} {
+      %u-#{$type}-#{$direction}--#{$size} {
         @include spacer-visualiser($size, $color, $type, $direction);
-        #{$type}-#{$direction}: var(--space-#{$size});
+        #{$type}-#{$direction}: var(--space-#{$size}) !important;
+      }
+      .u-#{$type}-#{$direction}--#{$size} {
+        @extend %u-#{$type}-#{$direction}--#{$size};
       }
     }
   }

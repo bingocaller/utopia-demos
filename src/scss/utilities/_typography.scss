@@ -57,6 +57,42 @@
   var(--fluid-bp));
 }
 
+$steps: ('-2', '-1', '0', '1', '2', '3', '4', '5');
+
+@each $step in $steps {
+  %u-font-size--step-#{$step} {
+    font-size: var(--step-#{$step});
+
+    .step-label {
+      --border-width: clamp(1px, 0.125em, 2px);
+      display: inline-flex;
+      margin-block-start: calc(0.125em + var(--border-width));
+      vertical-align: top;
+
+      &::before {
+        border: var(--border-width) solid currentColor;
+        border-radius: 0.25em;
+        content: 'Step: #{$step}';
+        font-size: 0.5em;
+        margin-inline-start: 1ch;
+        padding-inline: 0.125em 0.25em;
+        white-space: nowrap;
+      }
+
+      .hide-step-labels & {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+  }
+  .u-font-size--step-#{$step} {
+    @extend %u-font-size--step-#{$step};
+  }
+}
+
 :root {
   font-family: Inter, sans-serif;
 }
@@ -73,23 +109,23 @@ h6 {
 }
 
 h1 {
-  font-size: var(--step-5);
+  @extend %u-font-size--step-5;
 }
 
 h2 {
-  font-size: var(--step-4);
+  @extend %u-font-size--step-4;
 }
 
 h3 {
-  font-size: var(--step-3);
+  @extend %u-font-size--step-3;
 }
 
 h4 {
-  font-size: var(--step-2);
+  @extend %u-font-size--step-2;
 }
 
 h5 {
-  font-size: var(--step-1);
+  @extend %u-font-size--step-1;
 }
 
 h6,
@@ -98,9 +134,14 @@ li,
 input
 select,
 fieldset {
-  font-size: var(--step-0);
+  @extend %u-font-size--step-0;
+}
+
+p {
+  margin: 0;
+  line-height: 1.5;
 }
 
 small {
-  font-size: var(--step--2);
+  @extend %u-font-size--step--2;
 }

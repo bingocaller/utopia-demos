@@ -10,5 +10,6 @@
   </head>
   <body itemscope itemtype="https://schema.org/WebPage" class="{{ renderData.demoName or demoName or metadata.demoName }}">
     {{ content | safe }}
+    <script src="{{ '/js/main.js' | url }}"></script>
   </body>
 </html>
