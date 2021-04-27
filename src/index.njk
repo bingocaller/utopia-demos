@@ -7,17 +7,23 @@ layout: "base.njk"
     <h1>{{ renderData.title or title or metadata.title }}</h1>
 </header>
 <main class="u-padding--m">
-    <p>
-        This project has utility classes for all spacing sizes from 2XS to 2XL.
-        They add the spacing while also showing a visual representation of the
-        spacing to help see how the spacing changes across viewport sizes.
+    <h2>What is this?</h2>
+    <p class="u-margin-block-start--l">
+        This project has utility classes for all spacing sizes from 3XS to 3XL.
+        They add the spacing while also showing a visual representation of it
+        to help see how it changes across viewport sizes.
     </p>
-    <p>
+    <p class="u-margin-block-start--m">
         There are also styles for typography. Whenever a Utopia font size
         (step) is used, the name is appended to the text that uses it, again,
         to help visualisation.
     </p>
-    <p>
+    <p class="u-margin-block-start--m">
+        <strong>Pro tip:</strong> Press the <kbd>v</kbd> key on your keyboard
+        to toggle the visibility of spacing visualisers or press the
+        <kbd>s</kbd> key to toggle font step labels.
+    </p>
+    <p class="u-margin-block-start--m">
         The demos listed below show various things you can do with Utopia.
     </p>
 
@@ -27,3 +33,6 @@ layout: "base.njk"
         {% endfor %}
     </ul>
 </main>
+<footer class="u-padding--m">
+    <span class="u-font-size--step-2">Amazing!</span>
+</footer>
