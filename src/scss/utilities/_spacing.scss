@@ -93,6 +93,7 @@ $directions: (
     border-style: solid;
     border-color: #{$color}3;
     content: '';
+    pointer-events: none;
 
     @if $type == 'margin' {
       // Move visualiser border outside element
@@ -107,8 +108,11 @@ $directions: (
 
   &::after {
     color: inherit;
+    font-family: monospace;
     font-size: var(--step--2);
     opacity: 0.5;
+    pointer-events: none;
+    white-space: nowrap;
     @if $direction {
       content: '#{$type}-#{$direction}: #{to-upper-case($size)}';
     } @else {

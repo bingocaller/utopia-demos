@@ -18,21 +18,22 @@ demoName: 'grid-demo'
         <h1 class="grid-span">{{ renderData.title or title or metadata.title }}</h1>
     </div>
 </header>
-<main class="content grid">
+<main class="content grid u-padding--s">
     <div class="grid-span grid-span--small-10 grid-span--medium-8 grid-span--large-6">
         <p>
-        This demo uses a grid, which scales based on the width of the browser
-        window, using
-        <a href="https://utopia.fyi/space/calculator?c=320,16,1.125,1140,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l">
-            fluid spacing values generated with Utopia
-        </a>.
+            This demo uses a grid, which scales based on the width of the browser
+            window, using
+            <a href="https://utopia.fyi/space/calculator?c=320,16,1.125,1140,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l">
+                fluid spacing values generated with Utopia
+            </a>.
         </p>
         <p>
-        The gutter width scales from 16px at the smallest screen size of 320px
-        to 20px at the largest screen size of 1440px. It does this fluidly
-        without any media queries by interpolating its value based on
-        the viewport width. You can see the current width of the gutter and the
-        viewport in the footer and the columns are overlaid in transparent red.
+            The gutter width scales from 16px at the smallest screen size of 320px
+            to 20px at the largest screen size of 1440px. It does this fluidly
+            without any media queries by interpolating its value based on the
+            viewport width. You can see the current width of the gutter and the
+            viewport in the footer and the columns are overlaid in transparent
+            red.
         </p>
     </div>
     <h2 class="grid-span">Responsive classes</h2>
@@ -42,17 +43,16 @@ demoName: 'grid-demo'
                 >
                 <div class="field-element u-padding--s">
                     <h3>{{ number }}</h3>
-                    <p>
-                    This field element takes up fewer and fewer columns as the viewport
-                    gets bigger.<br />
-                    Here are the sizes:
-                    <ul>
+                    <p class="u-margin-block-start--s">
+                        This field element takes up fewer and fewer columns as
+                        the viewport gets bigger.<br /> Here are the sizes:
+                    </p>
+                    <ul class="u-margin-block-start--s">
                         <li><strong>Smallest:</strong> full width (span 12)</li>
                         <li><strong>Small:</strong> span 8</li>
                         <li><strong>Medium:</strong> span 4</li>
                         <li><strong>Large:</strong> span 3</li>
                     </ul>
-                    </p>
                 </div>
         </section>
     {% endfor %}
@@ -66,35 +66,35 @@ demoName: 'grid-demo'
             <section class="grid-span grid-span--{{12 / numOfColumns}}">
             {% endif %}
                 <div class="field-element u-padding--s">
-                <h3>{{ column }}</h3>
-                <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Perspiciatis eum accusamus voluptatum natus vel aut excepturi,
-                recusandae voluptates dolorum odit quas dicta ad quasi aliquam
-                laudantium sunt cumque, ipsum totam.
-                </p>
+                    <h3>{{ column }}</h3>
+                    <p class="u-margin-block-start--s">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Perspiciatis eum accusamus voluptatum natus vel aut excepturi,
+                        recusandae voluptates dolorum odit quas dicta ad quasi aliquam
+                        laudantium sunt cumque, ipsum totam.
+                    </p>
                 </div>
             </section>
         {% endfor %}
     {% endfor %}
 </main>
-<div class="grid overlay u-padding-inline--s">
+<div class="grid overlay">
     {% for column in twelve %}
         <div class="column"></div>
     {% endfor %}
 </div>
-<div class="footer u-padding-block--m u-padding-inline-s">
+<footer class="u-padding-block--m u-padding-inline--s">
     <div class="footer__left">
         <label for="fixed">
-            <input type="checkbox" name="fixed" id="fixed"> Fixed grid
+            <input type="checkbox" name="fixed" id="fixed"><span class="u-font-size--step-0">Fixed grid</span>
         </label>
-        <label for="overlay">
-            <input type="checkbox" name="overlay" id="overlay"> Hide grid
+        <label class="u-margin-block-start--xs u-font-size--step-0" for="overlay">
+            <input checked type="checkbox" name="overlay" id="overlay"><span class="u-font-size--step-0">Hide grid</span>
         </label>
     </div>
     <div class="footer__right">
-        <span><strong>Gutter width:</strong> <code class="calculated-gutter"></code></span>
-        <span><strong>Viewport width:</strong> <code class="viewport-width"></code></span>
+        <div class="u-font-size--step-0"><strong>Gutter width:</strong> <code class="calculated-gutter"></code></div>
+        <div class="u-margin-block-start--xs"><span class="u-font-size--step-0"><strong>Viewport width:</strong> <code class="viewport-width"></code></span></div>
     </div>
-</div>
+</footer>
 <script src="{{ '/js/main.js' | url }}"></script>
