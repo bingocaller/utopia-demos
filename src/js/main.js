@@ -6,6 +6,10 @@
     element.appendChild(stepLabel);
   });
 
+  // Hide all visualisations per default
+  document.body.classList.add('hide-visualisers');
+  document.body.classList.add('hide-step-labels');
+
   document.addEventListener('keyup', (e) => {
     if (e.key === 'v') {
       document.body.classList.toggle('hide-visualisers');
