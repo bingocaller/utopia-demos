@@ -1,0 +1,14 @@
+.card {
+  overflow: hidden;
+  max-width: 20em;
+  background-color: #efefef;
+  border-radius: 1em;
+}
+
+.card__image {
+  max-width: 100%;
+}
+
+.card__title {
+  font-weight: 400;
+}
