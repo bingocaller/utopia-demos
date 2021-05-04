@@ -10,8 +10,8 @@
   --fc-xs-min: (var(--fc-s-min) * 0.75);
   --fc-xs-max: (var(--fc-s-max) * 0.75);
 
-  --fc-s-min: (var(--f-0-min));
-  --fc-s-max: (var(--f-0-max));
+  --fc-s-min: var(--f-0-min, 16);
+  --fc-s-max: var(--f-0-max, 20);
 
   --fc-m-min: (var(--fc-s-min) * 1.5);
   --fc-m-max: (var(--fc-s-max) * 1.5);
@@ -79,56 +79,58 @@ $directions: (
   'inline-end',
 );
 
-@mixin spacer-visualiser($size, $color, $type, $direction: null) {
+@mixin spacing-visualiser($size, $color, $type, $direction: null) {
   position: relative;
 
-  &::before,
-  &::after {
+  > .spacing-visualiser {
+    --size: var(--space-#{$size});
     position: absolute;
-    inset: 0;
-  }
-
-  &::before {
-    border-width: 0;
-    border-style: solid;
-    border-color: #{$color}3;
-    content: '';
-    pointer-events: none;
-
-    @if $type == 'margin' {
-      // Move visualiser border outside element
-      inset-#{$direction}: calc(-1 * var(--space-#{$size}));
-    }
-    @if $direction {
-      border-#{$direction}-width: var(--space-#{$size});
-    } @else {
-      border-width: var(--space-#{$size});
-    }
-  }
-
-  &::after {
+    background-color: #{$color}3;
     color: inherit;
     font-family: monospace;
     font-size: var(--step--2);
     opacity: 0.5;
     pointer-events: none;
     white-space: nowrap;
-    @if $direction {
-      content: '#{$type}-#{$direction}: #{to-upper-case($size)}';
-    } @else {
-      content: '#{$type}: #{to-upper-case($size)}';
+
+    &::before {
+      position: absolute;
+      content: attr(data-content);
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      transform: translate(-50%, -50%);
     }
 
-    @if $type == 'margin' {
-      // Move visualiser border outside element
-      inset-#{$direction}: calc(-1 * var(--space-#{$size}));
+    &.spacing-visualiser--block-start,
+    &.spacing-visualiser--block-end {
+      height: var(--size);
+      inset-inline: 0;
     }
-  }
 
-  .hide-visualisers & {
-    &::before,
-    &::after {
-      display: none;
+    &.spacing-visualiser--block-start {
+      inset-block-start: if($type == 'margin', calc(-1 * var(--size)), 0);
+    }
+
+    &.spacing-visualiser--block-end {
+      inset-block-end: if($type == 'margin', calc(-1 * var(--size)), 0);
+    }
+
+    &.spacing-visualiser--inline-start,
+    &.spacing-visualiser--inline-end {
+      width: var(--size);
+      inset-block: 0;
+
+      &::before {
+        writing-mode: vertical-lr;
+      }
+    }
+
+    &.spacing-visualiser--inline-start {
+      inset-inline-start: if($type == 'margin', calc(-1 * var(--size)), 0);
+    }
+
+    &.spacing-visualiser--inline-end {
+      inset-inline-end: if($type == 'margin', calc(-1 * var(--size)), 0);
     }
   }
 }
@@ -136,7 +138,7 @@ $directions: (
 @each $size, $color in $sizes {
   @each $type in $types {
     %u-#{$type}--#{$size} {
-      @include spacer-visualiser($size, $color, $type);
+      @include spacing-visualiser($size, $color, $type);
       #{$type}: var(--space-#{$size}) !important;
     }
     .u-#{$type}--#{$size} {
@@ -144,7 +146,7 @@ $directions: (
     }
     @each $direction in $directions {
       %u-#{$type}-#{$direction}--#{$size} {
-        @include spacer-visualiser($size, $color, $type, $direction);
+        @include spacing-visualiser($size, $color, $type, $direction);
         #{$type}-#{$direction}: var(--space-#{$size}) !important;
       }
       .u-#{$type}-#{$direction}--#{$size} {
@@ -152,4 +154,8 @@ $directions: (
       }
     }
   }
+}
+
+.hide-visualisers .spacing-visualiser {
+  display: none;
 }

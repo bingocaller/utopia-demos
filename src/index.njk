@@ -19,15 +19,15 @@ layout: "base.njk"
         to help visualisation.
     </p>
     <p class="u-margin-block-start--m">
-        <strong>Pro tip:</strong> Press the <kbd>v</kbd> key on your keyboard
-        to toggle the visibility of spacing visualisers or press the
-        <kbd>s</kbd> key to toggle font step labels.
+        <strong>Pro tip:</strong> Press the <kbd>s</kbd> key on your keyboard
+        to toggle the visibility of <strong>s</strong>pacing visualisers or press the
+        <kbd>f</kbd> key to toggle <strong>f</strong>ont step labels.
     </p>
     <p class="u-margin-block-start--m">
         The demos listed below show various things you can do with Utopia.
     </p>
 
-    <ul>
+    <ul class="u-margin-block--s">
         {% for demo in collections.demos %}
         <li><a href="{{ demo.url }}">{{ demo.data.title }}</a></li>
         {% endfor %}
