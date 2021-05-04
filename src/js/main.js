@@ -57,6 +57,7 @@ function generateSpacingVisualisers() {
             const visualiser = document.createElement("span");
             visualiser.classList.add(
               "spacing-visualiser",
+              `spacing-visualiser--${size}`,
               `spacing-visualiser--${direction}`
             );
             visualiser.dataset.content = `${type}-${direction}: ${size.toUpperCase()}`;
@@ -67,6 +68,7 @@ function generateSpacingVisualisers() {
               const visualiser = document.createElement("span");
               visualiser.classList.add(
                 "spacing-visualiser",
+                `spacing-visualiser--${size}`,
                 `spacing-visualiser--${direction}-${side}`
               );
               visualiser.dataset.content = `${type}-${direction}-${side}: ${size.toUpperCase()}`;
@@ -79,6 +81,7 @@ function generateSpacingVisualisers() {
                 const visualiser = document.createElement("span");
                 visualiser.classList.add(
                   "spacing-visualiser",
+                  `spacing-visualiser--${size}`,
                   `spacing-visualiser--${side}`
                 );
                 visualiser.dataset.content = `${type}: ${size.toUpperCase()}`;

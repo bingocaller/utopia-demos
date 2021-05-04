@@ -67,6 +67,38 @@
   --space-s-l: calc(((var(--fc-s-min) / 16) * 1rem) + (var(--fc-l-max) - var(--fc-s-min)) * var(--fluid-bp));
 }
 
+@mixin spacing-visualiser($size, $color, $type) {
+  > .spacing-visualiser--#{$size} {
+    @if $type == 'margin' {
+      --visualiser-offset: calc(-1 * var(--size));
+    } @else {
+      --visualiser-offset: 0;
+    }
+    --size: var(--space-#{$size});
+    background-color: #{$color}3;
+  }
+
+  > .spacing-visualiser--block-start {
+    height: var(--size);
+    inset: var(--visualiser-offset) 0 auto 0;
+  }
+
+  > .spacing-visualiser--block-end {
+    height: var(--size);
+    inset: auto 0 var(--visualiser-offset) 0;
+  }
+
+  > .spacing-visualiser--inline-start {
+    width: var(--size);
+    inset: 0 auto 0 var(--visualiser-offset);
+  }
+
+  > .spacing-visualiser--inline-end {
+    width: var(--size);
+    inset: 0 var(--visualiser-offset) 0 auto;
+  }
+}
+
 $sizes: (
   ('3xs', #800),
   ('2xs', #f00),
@@ -93,80 +125,52 @@ $directions: (
   'inline-end',
 );
 
-@mixin spacing-visualiser($size, $color, $type, $direction: null) {
-  position: relative;
-
-  > .spacing-visualiser {
-    --size: var(--space-#{$size});
-    position: absolute;
-    background-color: #{$color}3;
-    color: inherit;
-    font-family: monospace;
-    font-size: var(--step--2);
-    opacity: 0.5;
-    pointer-events: none;
-    white-space: nowrap;
-
-    &::before {
-      position: absolute;
-      content: attr(data-content);
-      inset-block-start: 50%;
-      inset-inline-start: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    &.spacing-visualiser--block-start,
-    &.spacing-visualiser--block-end {
-      height: var(--size);
-      inset-inline: 0;
-    }
-
-    &.spacing-visualiser--block-start {
-      inset-block-start: if($type == 'margin', calc(-1 * var(--size)), 0);
-    }
-
-    &.spacing-visualiser--block-end {
-      inset-block-end: if($type == 'margin', calc(-1 * var(--size)), 0);
-    }
-
-    &.spacing-visualiser--inline-start,
-    &.spacing-visualiser--inline-end {
-      width: var(--size);
-      inset-block: 0;
-
-      &::before {
-        writing-mode: vertical-lr;
-      }
-    }
-
-    &.spacing-visualiser--inline-start {
-      inset-inline-start: if($type == 'margin', calc(-1 * var(--size)), 0);
-    }
-
-    &.spacing-visualiser--inline-end {
-      inset-inline-end: if($type == 'margin', calc(-1 * var(--size)), 0);
-    }
-  }
-}
-
 @each $size, $color in $sizes {
   @each $type in $types {
     %u-#{$type}--#{$size} {
       @include spacing-visualiser($size, $color, $type);
-      #{$type}: var(--space-#{$size}) !important;
+      position: relative;
+      #{$type}: var(--space-#{$size});
     }
     .u-#{$type}--#{$size} {
       @extend %u-#{$type}--#{$size};
     }
     @each $direction in $directions {
       %u-#{$type}-#{$direction}--#{$size} {
-        @include spacing-visualiser($size, $color, $type, $direction);
-        #{$type}-#{$direction}: var(--space-#{$size}) !important;
+        @include spacing-visualiser($size, $color, $type);
+        position: relative;
+        #{$type}-#{$direction}: var(--space-#{$size});
       }
       .u-#{$type}-#{$direction}--#{$size} {
         @extend %u-#{$type}-#{$direction}--#{$size};
       }
     }
+  }
+}
+
+.spacing-visualiser {
+  position: absolute;
+  overflow: hidden;
+  color: inherit;
+  font-family: monospace;
+  font-size: var(--step--2);
+  opacity: 0.5;
+  pointer-events: none;
+  white-space: nowrap;
+
+  &::before {
+    position: absolute;
+    content: attr(data-content);
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.spacing-visualiser--inline-start,
+.spacing-visualiser--inline-end {
+  &::before {
+    writing-mode: vertical-lr;
   }
 }
 
