@@ -1,6 +1,6 @@
 # utopia-demos
 A couple of demos showing Utopia in practice.  
-There's currently only one demo available: fluid, responsive grid
+Each demo lives on its own path, so for example, the Card demo is available at `/demos/card/`.
 
 Start in watch mode by running
 
