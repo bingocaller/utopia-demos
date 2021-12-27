@@ -107,6 +107,7 @@ h5,
 h6 {
   margin: 0;
   font-family: Poppins, sans-serif;
+  font-weight: 600;
   line-height: 1.1;
 }
 
@@ -144,6 +145,11 @@ p {
   line-height: 1.5;
 }
 
+strong {
+  font-weight: 600;
+}
+
 small {
   @extend %u-font-size--step--2;
 }
+
