@@ -1,4 +1,4 @@
-/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1440,14,1.25,5,2,1024&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+/* @link https://utopia.fyi/type/calculator?c=320,14,1.125,1440,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
 
 :root {
   --fluid-min-width: 320;
@@ -16,43 +16,43 @@
 }
 
 :root {
-  --f--2-min: 11.11;
-  --f--2-max: 8.96;
+  --f--2-min: 11.06;
+  --f--2-max: 12.8;
   --step--2: calc(((var(--f--2-min) / 16) * 1rem) + (var(--f--2-max) - var(--f--2-min)) *
   var(--fluid-bp));
 
-  --f--1-min: 13.33;
-  --f--1-max: 11.2;
+  --f--1-min: 12.44;
+  --f--1-max: 16;
   --step--1: calc(((var(--f--1-min) / 16) * 1rem) + (var(--f--1-max) - var(--f--1-min)) *
   var(--fluid-bp));
 
-  --f-0-min: 16;
-  --f-0-max: 14;
+  --f-0-min: 14;
+  --f-0-max: 20;
   --step-0: calc(((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) *
   var(--fluid-bp));
 
-  --f-1-min: 19.2;
-  --f-1-max: 17.5;
+  --f-1-min: 15.75;
+  --f-1-max: 25;
   --step-1: calc(((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) *
   var(--fluid-bp));
 
-  --f-2-min: 23.04;
-  --f-2-max: 21.88;
+  --f-2-min: 17.72;
+  --f-2-max: 31.25;
   --step-2: calc(((var(--f-2-min) / 16) * 1rem) + (var(--f-2-max) - var(--f-2-min)) *
   var(--fluid-bp));
 
-  --f-3-min: 27.65;
-  --f-3-max: 27.34;
+  --f-3-min: 19.93;
+  --f-3-max: 39.06;
   --step-3: calc(((var(--f-3-min) / 16) * 1rem) + (var(--f-3-max) - var(--f-3-min)) *
   var(--fluid-bp));
 
-  --f-4-min: 33.18;
-  --f-4-max: 34.18;
+  --f-4-min: 22.43;
+  --f-4-max: 48.83;
   --step-4: calc(((var(--f-4-min) / 16) * 1rem) + (var(--f-4-max) - var(--f-4-min)) *
   var(--fluid-bp));
 
-  --f-5-min: 39.81;
-  --f-5-max: 42.72;
+  --f-5-min: 25.23;
+  --f-5-max: 61.04;
   --step-5: calc(((var(--f-5-min) / 16) * 1rem) + (var(--f-5-max) - var(--f-5-min)) *
   var(--fluid-bp));
 }

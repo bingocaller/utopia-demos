@@ -1,4 +1,4 @@
-/* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1440,14,1.25,5,2,1024&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+/* @link https://utopia.fyi/space/calculator?c=320,14,1.2,1440,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
 
 :root {
   --fluid-min-width: 320;
@@ -24,8 +24,8 @@
   --fc-xs-min: (var(--fc-s-min) * 0.75);
   --fc-xs-max: (var(--fc-s-max) * 0.75);
 
-  --fc-s-min: (var(--f-0-min, 16));
-  --fc-s-max: (var(--f-0-max, 14));
+  --fc-s-min: (var(--f-0-min, 14));
+  --fc-s-max: (var(--f-0-max, 20));
 
   --fc-m-min: (var(--fc-s-min) * 1.5);
   --fc-m-max: (var(--fc-s-max) * 1.5);
@@ -177,3 +177,4 @@ $directions: (
 .hide-visualisers .spacing-visualiser {
   display: none;
 }
+
