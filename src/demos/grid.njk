@@ -44,6 +44,10 @@ demoName: 'grid-demo'
 
 	<h2 class="grid-span">Responsive classes</h2>
 
+	<p class="grid-span">
+		This shows how we can have elements span a dynamic number of columns in response to viewport size changes.
+	</p>
+
 	{% for number in responsive %}
 		<section class="grid-span grid-span--small-8 grid-span--medium-4 grid-span--large-3">
 			<div class="field-element u-padding--s">
@@ -62,6 +66,12 @@ demoName: 'grid-demo'
 	{% endfor %}
 
 	<h2 class="grid-span">Static classes</h2>
+
+	<p class="grid-span">
+		This shows elements that span a static number of columns and only
+		respond to changes to viewport sizes in the sense that the columns
+		themselves change in size.
+	</p>
 
 	{% for row in static %}
 		{% set numOfColumns = row | length %}
