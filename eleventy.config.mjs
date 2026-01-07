@@ -2,6 +2,10 @@ import path from "node:path";
 import * as sass from 'sass';
 
 export default function (eleventyConfig) {
+	// Enable adding things to `<head>` from anywhere.
+	// https://www.11ty.dev/docs/plugins/bundle/#react-helmet-style-additions
+	eleventyConfig.addBundle("html");
+
 	// https://www.11ty.dev/docs/languages/sass/
 	eleventyConfig.addExtension("scss", {
 		outputFileExtension: "css",

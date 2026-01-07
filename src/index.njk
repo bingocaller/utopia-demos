@@ -6,8 +6,10 @@ layout: "base.njk"
 <header class="u-padding--s">
     <h1>{{ renderData.title or title or metadata.title }}</h1>
 </header>
+
 <main class="u-padding--m">
     <h2>What is this?</h2>
+
     <p class="u-margin-block-start--l">
         This project has utility classes for all spacing sizes from 3XS to 3XL.
         They add the spacing while also showing a visual representation of it
@@ -19,9 +21,9 @@ layout: "base.njk"
         to help visualisation.
     </p>
     <p class="u-margin-block-start--m">
-        <strong>Pro tip:</strong> Press the <kbd>s</kbd> key on your keyboard
-        to toggle the visibility of <strong>s</strong>pacing visualisers or press the
-        <kbd>f</kbd> key to toggle <strong>f</strong>ont step labels.
+        <strong>Pro tip:</strong> Press the <kbd>s</kbd> key on your keyboard to
+        toggle the visibility of <strong>s</strong>pacing visualisers or press
+        the <kbd>f</kbd> key to toggle <strong>f</strong>ont step labels.
     </p>
     <p class="u-margin-block-start--m">
         The demos listed below show various things you can do with Utopia.
@@ -29,10 +31,7 @@ layout: "base.njk"
 
     <ul class="u-margin-block--s">
         {% for demo in collections.demos %}
-        <li><a href="{{ demo.url }}">{{ demo.data.title }}</a></li>
+            <li><a href="{{ demo.url }}">{{ demo.data.title }}</a></li>
         {% endfor %}
     </ul>
 </main>
-<footer class="u-padding--m">
-    <span class="u-font-size--step-2">Amazing!</span>
-</footer>

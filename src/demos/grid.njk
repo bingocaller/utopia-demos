@@ -3,6 +3,10 @@ title: 'Fluid, responsive grid'
 demoName: 'grid-demo'
 ---
 
+{% html "head" %}
+    <link rel="stylesheet" href="{{ '/styles/demos/grid.css' | url }}">
+{% endhtml %}
+
 {% set twelve = range(1, 13) %}
 {% set responsive = ['One', 'Two', 'Three', 'Four'] %}
 {% set static = [
@@ -13,11 +17,12 @@ demoName: 'grid-demo'
   ['1/6','1/6','1/6','1/6','1/6','1/6']
 ]%}
 
-<header class="u-padding--s">
-    <div class="grid">
+<header>
+    <div class="grid u-padding--s">
         <h1 class="grid-span">{{ renderData.title or title or metadata.title }}</h1>
     </div>
 </header>
+
 <main class="content grid u-padding--s">
     <div class="grid-span grid-span--small-10 grid-span--medium-8 grid-span--large-6">
         <p>
@@ -28,12 +33,12 @@ demoName: 'grid-demo'
             </a>
         </p>
         <p>
-            The gutter width scales from 16px at the smallest screen size of 320px
-            to 20px at the largest screen size of 1440px. It does this fluidly
-            without any media queries by interpolating its value based on the
-            viewport width. You can see the current width of the gutter and the
-            viewport in the footer and the columns are overlaid in transparent
-            red.
+            The gutter width scales from 16px at the smallest screen size of
+            320px to 20px at the largest screen size of 1440px. It does this
+            fluidly without any media queries by interpolating its value based
+            on the viewport width. You can see the current width of the gutter
+            and the viewport in the footer and the columns are overlaid in
+            transparent red.
         </p>
     </div>
     <h2 class="grid-span">Responsive classes</h2>
@@ -61,28 +66,30 @@ demoName: 'grid-demo'
         {% set numOfColumns = row | length %}
         {% for column in row %}
             {% if numOfColumns === 1 %}
-            <section class="grid-span">
+                <section class="grid-span">
             {% else %}
-            <section class="grid-span grid-span--{{12 / numOfColumns}}">
+                <section class="grid-span grid-span--{{12 / numOfColumns}}">
             {% endif %}
-                <div class="field-element u-padding--s">
-                    <h3>{{ column }}</h3>
-                    <p class="u-margin-block-start--s">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                        Perspiciatis eum accusamus voluptatum natus vel aut excepturi,
-                        recusandae voluptates dolorum odit quas dicta ad quasi aliquam
-                        laudantium sunt cumque, ipsum totam.
-                    </p>
-                </div>
-            </section>
+                    <div class="field-element u-padding--s">
+                        <h3>{{ column }}</h3>
+                        <p class="u-margin-block-start--s">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                            Perspiciatis eum accusamus voluptatum natus vel aut excepturi,
+                            recusandae voluptates dolorum odit quas dicta ad quasi aliquam
+                            laudantium sunt cumque, ipsum totam.
+                        </p>
+                    </div>
+                </section>
         {% endfor %}
     {% endfor %}
 </main>
+
 <div class="grid overlay">
     {% for column in twelve %}
         <div class="column"></div>
     {% endfor %}
 </div>
+
 <footer class="u-padding-block--m u-padding-inline--s">
     <div class="footer__left">
         <label for="fixed">
@@ -97,4 +104,5 @@ demoName: 'grid-demo'
         <div class="u-margin-block-start--xs"><span class="u-font-size--step-0"><strong>Viewport width:</strong> <code class="viewport-width"></code></span></div>
     </div>
 </footer>
+
 <script src="{{ '/js/demos/grid.js' | url }}"></script>
