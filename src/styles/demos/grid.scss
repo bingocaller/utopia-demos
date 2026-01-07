@@ -40,14 +40,10 @@ $breakpoints: (
   .field-element {
     overflow: auto;
     background-color: hsl(0 0% 0% / 0.2);
-
-    > * {
-      margin: 0;
-    }
   }
 
   footer {
-    position: fixed;
+    position: sticky;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
